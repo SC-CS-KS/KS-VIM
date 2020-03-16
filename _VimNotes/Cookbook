@@ -1,0 +1,68 @@
+
+--  插入模式下 Ctrl-y，重复当前光标上一行的字符
+--  gd 作用类似 %
+--  wb 下一个单词开头
+--  di(  或者ci()   da( 或 ca( 
+
+
+-----------------------------------------------------------------------------------------
+Vim Grammar, by Tom CammannTom Camman kicked off the evening with an introduction to Vim’s Grammar. He illustrated Vim’s Normal mode operations with a simple set of rules:
+
+Vim 's alphabet = all of the keyboard
+rule #1 = motion
+rule #2 = operator motion
+text-obj = modifier object
+modifier = a |i
+object = w |W |s |p |[ |] |{ |} |( |) |" |' |` |< |>
+refined rule #2 = operator ( motion | text - obj )
+
+Check out his grammar slide and be sure to click the ‘Show optional’ link. Tom has written up an Intro to Vim grammar blog post, which nicely summarizes the material from his talk.
+-----------------------------------------------------------------------------------------
+作者：Pegasus Wang
+链接：http://www.zhihu.com/question/27478597/answer/36837839
+来源：知乎
+著作权归作者所有，转载请联系作者获得授权。
+
+vim参数：
+vim -b 用二进制打开
+vim +number 打开并定位到底nunber行
+vimdiff a.txt b.txt 比对文件
+
+insert模式下：
+ctrl + [ 实现ESC功能
+crtl+d ctrl+t 左右缩进
+ctrl + x + i 行补齐
+ctrl + x + f 文件路径补齐
+ctrl + w 删除word
+ctrl + u 重新编辑本行
+
+命令模式：
+g+ctrl+g 字节统计
+ctrl + v 块选择，可以用来给代码多行注释
+gd 跳转到局部定义
+gf 跳转到文件
+ctrl + o 跳转到上一位置
+ctrl + i 跳转下一位置（和ctrl + o配合在代码间跳转）
+K 查询系统函数（unix、linux），在linux系统函数上用K跳转到man查询页面
+ctrl + ] 跳转到定义
+<< 左缩进
+>> 右缩进
+
+底行命令模式：
+:r !pwd 输入当前路径
+:!cmd 执行shell的命令
+:%!xxd 转换16进制
+:set list 显示不可见字符
+:set fileencoding 设置编码
+
+
+vim中表示当前文件的方法：
+在命令行模式下：
+% 当前完整的文件名
+%:h 文件名的头部，即文件目录.例如../path/test.c就会为../path
+%:t 文件名的尾部.例如../path/test.c就会为test.c
+%:r 无扩展名的文件名.例如../path/test就会成为test
+%:e 扩展名
+常用命令:
+http://ningning.today/2014/11/02/Linux/vim%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/
+目前所有主流IDE几乎都支持vim插件了，包括vs，ide强大的功能+vim编辑能提升不少工作效率。
